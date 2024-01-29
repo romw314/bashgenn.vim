@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.bgn set filetype=bashgenn
+au BufNewFile,BufRead *.bgn setfiletype bashgenn
