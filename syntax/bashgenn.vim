@@ -24,8 +24,8 @@ syn region bashgennBlock matchgroup=bashgennStatement start="\<STRGET\>" end="\<
 syn region bashgennBlock matchgroup=bashgennStatement start="\<CONST_\=SCAN\>" end="\<DONE\>" fold transparent
 syn region bashgennIReqBlock matchgroup=bashgennIReqStatement start="\<RREPT\>" end="\<DONE\>" fold transparent
 syn region bashgennIReqBlock matchgroup=bashgennIReqStatement start="\<IREPT\>" end="\<DONE\>" fold transparent
-syn region bashgennFunc matchgroup=bashgennSpecial start="\<FUNC\>" end="\<ENDFUNC\>"
-syn region bashgennFunc matchgroup=bashgennSpecial start="\<EXPORT\>" end="\<ENDFUNC\>"
+syn region bashgennFunc matchgroup=bashgennSpecial start="\<FUNC\>" end="\<ENDFUNC\>" fold transparent
+syn region bashgennFunc matchgroup=bashgennSpecial start="\<EXPORT\>" end="\<ENDFUNC\>" fold transparent
 
 syn keyword bashgennTodo contained TODO FIXME XXX NOTE
 syn region bashgennComment start="^[ \t]*-" end="$" contains=bashgennTodo
