@@ -2,6 +2,9 @@ if exists("b:current_syntax")
 	finish
 endif
 
+syn keyword bashgennSpecial PROG_INIT MODULE
+syn keyword bashgennImport IMPORT
+
 syn keyword bashgennStatement READ ECHO NONL COPY FIRST LAST STOREFIRST STORELAST nextgroup=bashgennVarName
 syn keyword bashgennStatement CHINC CHDEC STORECHINC STORECHDEC STRRANGE STRRANGELESS STRCAT FIND
 syn keyword bashgennStatement CONST_SET CONSTSET nextgroup=bashgennConstName
@@ -21,6 +24,8 @@ syn region bashgennBlock matchgroup=bashgennStatement start="\<STRGET\>" end="\<
 syn region bashgennBlock matchgroup=bashgennStatement start="\<CONST_\=SCAN\>" end="\<DONE\>" fold transparent
 syn region bashgennIReqBlock matchgroup=bashgennIReqStatement start="\<RREPT\>" end="\<DONE\>" fold transparent
 syn region bashgennIReqBlock matchgroup=bashgennIReqStatement start="\<IREPT\>" end="\<DONE\>" fold transparent
+syn region bashgennFunc matchgroup=bashgennSpecial start="\<FUNC\>" end="\<ENDFUNC\>"
+syn region bashgennFunc matchgroup=bashgennSpecial start="\<EXPORT\>" end="\<ENDFUNC\>"
 
 syn keyword bashgennTodo contained TODO FIXME XXX NOTE
 syn region bashgennComment start="^[ \t]*-" end="$" contains=bashgennTodo
@@ -29,9 +34,13 @@ let b:current_syntax = "bashgenn"
 
 hi def link rbgnStatement bashgennStatement
 hi def link bashgennIReqStatement bashgennStatement
+
 hi def link bashgennConstName Identifier
 hi def link bashgennVarName Identifier
 hi def link bashgennConstValue String
 hi def link bashgennStatement Statement
 hi def link bashgennCompilerDirective PreProc
 hi def link bashgennComment Comment
+hi def link bashgennTodo Todo
+hi def link bashgennSpecial Special
+hi def link bashgennImport PreProc
